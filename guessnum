@@ -8,7 +8,7 @@ printf("guess the average number of children per family in US :");
 int check()
 {
 scanf("%d",&b);
-if (b=2) { printf("that is correct\n"); break;}
+if (b=2) { printf("that is correct\n");}
 else if (b<2)
 {
 printf("it is close abit higher \n make another one");
