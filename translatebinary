@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+int* converts(char* arrayin, int* arrayout);
+
+int main(int argc, char* argv[])
+{
+	if (argc != 2)
+	{
+		printf("usage binarytrs binaryarray !");
+		return 1;
+	}
+	int lenbina= strlen(argv[1]);
+	if (lenbina % 8 != 0)
+	{
+		printf("fuck off");
+		return 2;
+	}
+	int lenarray = lenbina/8+1;
+	int numray[lenarray];
+	converts(argv[1],numray);
+	return 0;
+	
+}
+int* converts(char* arrayin, int* arrayout)
+{
+	int lenbina= strlen(arrayin);
+	for (int i = 0; i < lenbina; i = i + 8)
+	{
+		int tmp = 0;
+		for (int j = 0; j < 8; j++)
+		{
+			int sub = 1;
+			for (int k = 1; k < 8 - j; k++)
+			{
+				sub = sub*2;
+			}
+			tmp = tmp + sub * (arrayin[i + j]-'0');
+			sub = 1;
+		}
+		arrayout[(int)i/8] = tmp;
+		printf("%\n",tmp);
+	}
+	return arrayout;
+}
+		
+		
+	
+	
+	
